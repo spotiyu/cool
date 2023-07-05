@@ -5,8 +5,9 @@ WORKDIR /real-url-api
 
 RUN apt-get update -y &&\
     pip install --upgrade pip &&\
+    pip install pipreqs &&\
     pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
-CMD ["python", "flask_server.py"]
+CMD ["pipreqs . --prints"]
